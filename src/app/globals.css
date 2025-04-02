@@ -6,50 +6,50 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* Updated background color to white */
-    --foreground: 240 10% 20%;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 20%;
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 20%;
-    --primary: 220 70% 60%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 290 50% 80%;
-    --secondary-foreground: 290 50% 30%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 240 5% 40%;
-    --accent: 150 30% 70%;
-    --accent-foreground: 150 60% 20%;
-    --destructive: 0 70% 60%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5% 90%;
-    --input: 240 5% 90%;
-    --ring: 220 70% 50%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
     --radius: 0.5rem;
     --font-handwriting: 'Dancing Script', cursive;
     --font-serif: 'Playfair Display', serif;
   }
 
   .dark {
-    --background: 110 15% 15%;
-    --foreground: 210 20% 90%;
-    --card: 110 15% 20%;
-    --card-foreground: 210 20% 90%;
-    --popover: 210 40% 8%;
-    --popover-foreground: 210 20% 90%;
-    --primary: 220 70% 50%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 290 50% 40%;
-    --secondary-foreground: 290 80% 90%;
-    --muted: 210 40% 12%;
-    --muted-foreground: 210 30% 70%;
-    --accent: 150 30% 30%;
-    --accent-foreground: 150 60% 90%;
-    --destructive: 0 70% 40%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 210 40% 20%;
-    --input: 210 40% 20%;
-    --ring: 220 70% 50%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
   }
 }
 
@@ -76,9 +76,7 @@
 @layer components {
   /* Notion-inspired styles */
   .notion-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1rem;
+    @apply max-w-4xl mx-auto px-4;
   }
 
   .notion-title {
@@ -227,18 +225,7 @@
   }
 
   .page-transition {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    @apply min-h-screen bg-background;
   }
 
   .letter-button {
@@ -360,25 +347,7 @@
 
   /* Notion-style buttons */
   .notion-button {
-    border-radius: 4px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    background-color: rgba(55, 53, 47, 0.08);
-    color: rgba(55, 53, 47, 0.9);
-    transition: background-color 0.2s;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .notion-button:hover {
-    background-color: rgba(55, 53, 47, 0.12);
-  }
-
-  .notion-button svg {
-    margin-right: 0.5rem;
-    width: 16px;
-    height: 16px;
+    @apply px-4 py-2 bg-white text-gray-800 rounded-md shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 hover:border-gray-300;
   }
 
   /* Custom volume slider styles */

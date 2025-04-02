@@ -56,7 +56,7 @@ const TimelineImageCard: React.FC<{
   return (
     <motion.div
       className={cn(
-        "relative bg-white p-3 shadow-lg rounded-lg cursor-pointer transition-all duration-300",
+        "relative bg-white p-2 shadow-md rounded-lg cursor-pointer transition-all duration-300",
         isExpanded ? "z-50 scale-105" : "hover:scale-105",
         "transform-gpu"
       )}
@@ -74,10 +74,10 @@ const TimelineImageCard: React.FC<{
         disabled={isUploading}
       />
 
-      <div className="relative p-3 pt-3 pb-12">
+      <div className="relative p-2 pt-2 pb-8">
         {milestone.imageSrc ? (
           <div 
-            className="w-full h-[calc(100%-48px)] overflow-hidden bg-gray-100 relative group"
+            className="w-full aspect-square overflow-hidden bg-gray-100 relative group"
             onClick={handleImageClick}
           >
             <img
@@ -87,43 +87,43 @@ const TimelineImageCard: React.FC<{
             />
             {!isExpanded && (
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <p className="text-white text-sm">Click to change image</p>
+                <p className="text-white text-xs">Click to change image</p>
               </div>
             )}
           </div>
         ) : (
           <div 
-            className="w-full h-[calc(100%-48px)] flex items-center justify-center bg-gray-100 cursor-pointer"
+            className="w-full aspect-square flex items-center justify-center bg-gray-100 cursor-pointer"
             onClick={handleImageClick}
           >
             <div className="text-center">
-              <ImageIcon className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-              <p className="text-sm text-gray-500">Click to add image</p>
+              <ImageIcon className="h-8 w-8 text-gray-400 mx-auto mb-1" />
+              <p className="text-xs text-gray-500">Click to add image</p>
             </div>
           </div>
         )}
-        <div className="mt-2 px-1">
+        <div className="mt-1 px-1">
           <p className={cn(
-            "text-sm font-medium text-center font-handwriting",
+            "text-xs font-medium text-center font-handwriting truncate",
             milestone.id === '16' ? "text-purple-400" : // lavender for 2 year anniversary
             milestone.title.includes("banana chen") ? "text-yellow-500" : // yellow for banana chen
             "text-gray-800"
           )}>
             {milestone.title}
           </p>
-          <p className="text-xs text-gray-500 text-center font-mono">{milestone.formattedDate}</p>
+          <p className="text-[10px] text-gray-500 text-center font-mono">{milestone.formattedDate}</p>
         </div>
       </div>
 
       {/* Expand/collapse button */}
       <button
         onClick={onToggleExpand}
-        className="absolute top-2 right-2 z-10 rounded-full bg-white/80 p-1 shadow-sm hover:bg-white transition-colors"
+        className="absolute top-1 right-1 z-10 rounded-full bg-white/80 p-1 shadow-sm hover:bg-white transition-colors"
       >
         {isExpanded ? (
-          <ChevronUp className="h-4 w-4 text-gray-600" />
+          <ChevronUp className="h-3 w-3 text-gray-600" />
         ) : (
-          <ChevronDown className="h-4 w-4 text-gray-600" />
+          <ChevronDown className="h-3 w-3 text-gray-600" />
         )}
       </button>
     </motion.div>
@@ -346,7 +346,7 @@ export default function RelationshipTimeline() {
             <h2 className="text-4xl font-light mb-12 sticky top-4 bg-white/80 backdrop-blur-sm p-4 rounded-lg z-10">
               {year}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {yearMilestones.map((milestone, index) => (
                 <TimelineImageCard
                   key={milestone.id}
