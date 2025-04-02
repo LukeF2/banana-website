@@ -38,9 +38,14 @@ export interface Letter {
 }
 
 // Function to upload image to Supabase Storage
-export async function uploadImage(file: File, milestoneId: string): Promise<string> {
+export async function uploadImage(file: File | string, milestoneId: string): Promise<string> {
   // If the file is already a URL (from local storage), return it
   if (typeof file === 'string' && file.startsWith('/timeline-images/')) {
+    return file;
+  }
+
+  // If it's a string but not a local path, return it as is
+  if (typeof file === 'string') {
     return file;
   }
 
