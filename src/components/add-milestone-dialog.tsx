@@ -106,7 +106,7 @@ export default function AddMilestoneDialog({ onAddMilestone }: AddMilestoneDialo
             <label htmlFor="date" className="text-sm font-medium">Date</label>
             <DatePicker
               date={date}
-              onSelect={setDate}
+              onSelect={(newDate) => newDate && setDate(newDate)}
             />
           </div>
 
